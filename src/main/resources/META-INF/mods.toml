@@ -1,6 +1,6 @@
 modLoader="javafml"
 loaderVersion="[35,)"
-license="All rights reserved"
+license="MIT"
 
 [[mods]]
 modId="aquatic_artifacts"

@@ -28,7 +28,7 @@ import java.util.stream.Collectors;
 @Mod(AquaticArtifacts.MOD_ID)
 public class AquaticArtifacts {
     public static final Logger LOGGER = LogManager.getLogger();
-    public static final String MOD_ID = "aquatic_artifacts ";
+    public static final String MOD_ID = "aquatic_artifacts";
 
     public static final ItemGroup TAB = new ItemGroup(MOD_ID) {
         @Override
