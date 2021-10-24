@@ -9,6 +9,7 @@ import org.waterbenders.aquaticartifacts.common.blocks.BlockItemBase;
 import org.waterbenders.aquaticartifacts.common.items.SunkenMetalIngot;
 import org.waterbenders.aquaticartifacts.common.items.WaterBallWand;
 import org.waterbenders.aquaticartifacts.common.items.WaterOrb;
+import org.waterbenders.aquaticartifacts.common.items.WaterShard;
 
 public class ModItems {
 
@@ -26,5 +27,8 @@ public class ModItems {
     // Block Items
     public static final RegistryObject<Item> SUNKEN_METAL_BLOCK_ITEM = ITEMS.register("sunken_metal_block",
             () -> new BlockItemBase(ModBlocks.SUNKEN_METAL_BLOCK.get()));
+
+    // Water Shard it is shard made from water related things:
+    public static final RegistryObject<Item> WATER_SHARD = ITEMS.register("water_shard", WaterShard::new);
 
 }
