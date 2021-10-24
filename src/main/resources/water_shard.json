@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "plp",
+    "lhl",
+    "plp"
+  ],
+  "key": {
+    "l": {
+      "item":"minecraft:lapis_lazuli"
+    },
+    "p": {
+      "item": "minecraft:prismarine_shard"
+    },
+    "h": {
+      "item": "minecraft:heart_of_the_sea"
+    },
+  },
+  "result": {
+    "item": "aquatic_artifacts:water_shard",
+    "count": 8
+  }
+}
