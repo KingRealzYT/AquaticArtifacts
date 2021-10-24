@@ -13,10 +13,7 @@ import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.waterbenders.aquaticartifacts.client.ModRenderRegistry;
-import org.waterbenders.aquaticartifacts.init.ModBlocks;
-import org.waterbenders.aquaticartifacts.init.ModEntityTypes;
-import org.waterbenders.aquaticartifacts.init.ModItems;
-import org.waterbenders.aquaticartifacts.init.ModTileEntityTypes;
+import org.waterbenders.aquaticartifacts.init.*;
 import org.waterbenders.aquaticartifacts.world.gen.ModFeatures;
 
 // The value here should match an entry in the META-INF/mods.toml file
@@ -39,7 +36,7 @@ public class AquaticArtifacts {
         ModBlocks.BLOCKS.register(bus);
         ModItems.ITEMS.register(bus);
         ModEntityTypes.ENTITY_TYPES.register(bus);
-
+        ModEntities.ENTITIES.register(bus);
         ModTileEntityTypes.TILE_ENTITY_TYPES.register(bus);
         ModFeatures.FEATURES.register(bus);
         MinecraftForge.EVENT_BUS.register(this);
