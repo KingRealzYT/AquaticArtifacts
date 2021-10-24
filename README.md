@@ -2,14 +2,14 @@
 
 Made for TurtyWurty competition, Adds in multiple water based stuff such as wands, armor and more!
 
-This is a collabration between Multiple People Including Realz, Basti, Ilja, and Ryorama
+This is a collaboration between Realz, Basti, Ilja, and Ryorama
 
 
 Here are the Added Items:
 
 - 4 Water orbs
   Charge the orb by clicking on water. The water will be consumed by using specific items.
-  The orbs can contain more water the higher the level is.
+  The higher the level of the orb, the more water it can contain.
   
 - Wand of the moving Water
   Lets you move big areas of water for the cost of water.
