@@ -1,4 +1,7 @@
 {
   "itemGroup.aquatic_artifacts": "Aquatic Artifacts",
-  "item.aquatic_artifacts.water_orb": "Water Orb"
+  "item.aquatic_artifacts.water_orb": "Water Orb",
+  "item.aquatic_artifacts.water_ball_wand": "Wand of the moving Water",
+  "item.aquatic_artifacts.aquatic_helmet": "Aquatic Helmet",
+  "item.aquatic_artifacts.aquatic_chestplate": "Aquatic Chestplate"
 }

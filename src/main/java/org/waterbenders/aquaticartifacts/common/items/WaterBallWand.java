@@ -34,32 +34,24 @@ public class WaterBallWand extends Item implements WaterBendingItem {
         player.startUsingItem(hand);
 
         Vector3d playerEyePosition = new Vector3d(player.getX(), player.getEyeY(), player.getZ());
-        ItemStack stack = player.getItemInHand(hand);
-        CompoundNBT tag = stack.getOrCreateTagElement(AquaticArtifacts.MOD_ID);
+        ItemStack itemStack = player.getItemInHand(hand);
+        CompoundNBT tag = itemStack.getOrCreateTagElement(AquaticArtifacts.MOD_ID);
 
         if (tag.getBoolean("has_water")) {
-//            int sphereRadius = tag.getInt("sphere_radius");
-//            int sphereDistance = tag.getInt("sphere_distance");
+            castSpell(player, () -> {
+                int sphereRadius = tag.getInt("sphere_radius");
+                int sphereDistance = tag.getInt("sphere_distance");
 
-
-//            //REMOVE OLD WATER
-//            BlockPos oldHitPos = BlockPos.of(tag.getLong("last_hit_pos"));
-//            for (BlockPos pos : getSphere(oldHitPos, sphereRadius)) {
-//                if (world.getBlockState(pos).getBlock() == Blocks.WATER) {
-//                    world.removeBlock(pos, true);
-//                }
-//            }
-//
-//            //SET NEW WATER
-//            BlockPos hitPos = new BlockPos(playerEyePosition.add(player.getLookAngle().multiply(sphereDistance, sphereDistance, sphereDistance)));
-//            tag.putLong("last_hit_pos", hitPos.asLong());
-//
-//            for (BlockPos pos : getSphere(hitPos, sphereRadius)) {
-//                if (world.getBlockState(pos).isAir()) {
-//                    world.setBlock(pos, Blocks.WATER.defaultBlockState(), 3);
-//                }
-//            }
-        } else
+                //SET NEW WATER
+                BlockPos hitPos = new BlockPos(playerEyePosition.add(player.getLookAngle().multiply(sphereDistance, sphereDistance, sphereDistance)));
+                for (BlockPos pos : getSphere(hitPos, sphereRadius)) {
+                    if (world.getBlockState(pos).isAir()) {
+                        world.setBlock(pos, Blocks.WATER.defaultBlockState(), 3);
+                    }
+                }
+                itemStack.removeTagKey(AquaticArtifacts.MOD_ID);
+            });
+        } else {
             for (int i = 0; i < TRACE_RANGE; i++) {
                 BlockPos hitPos = new BlockPos(playerEyePosition.add(player.getLookAngle().multiply(i, i, i)));
                 if (world.getBlockState(hitPos).getBlock() == Blocks.WATER) {
@@ -76,8 +68,10 @@ public class WaterBallWand extends Item implements WaterBendingItem {
                     tag.putInt("sphere_distance", i);
                     tag.putInt("sphere_radius", sphereRadius);
                     tag.putBoolean("has_water", true);
+                    break;
                 }
             }
+        }
 
         return super.use(world, player, hand);
     }
@@ -99,13 +93,17 @@ public class WaterBallWand extends Item implements WaterBendingItem {
     }
 
     @Override
-    public void releaseUsing(ItemStack itemStack, World world, LivingEntity livingEntity, int p_77615_4_) {
-        itemStack.removeTagKey(AquaticArtifacts.MOD_ID);
-        super.releaseUsing(itemStack, world, livingEntity, p_77615_4_);
+    public int getUseDuration(ItemStack p_77626_1_) {
+        return 72000;
     }
 
     @Override
-    public int getUseDuration(ItemStack p_77626_1_) {
-        return 72000;
+    public boolean isFoil(ItemStack itemStack) {
+        return itemStack.getOrCreateTagElement(AquaticArtifacts.MOD_ID).getBoolean("has_water");
+    }
+
+    @Override
+    public float manaCost() {
+        return 0;
     }
 }
