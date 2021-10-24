@@ -74,4 +74,11 @@ public class HeavyBoat extends BoatEntity
     public IPacket<?> getAddEntityPacket() {
         return NetworkHooks.getEntitySpawningPacket(this);
     }
+
+    @Override
+    public void tick()
+    {
+        super.tick();
+        this.setDeltaMovement(this.getDeltaMovement().add(0d, -0.1d, 0d));
+    }
 }

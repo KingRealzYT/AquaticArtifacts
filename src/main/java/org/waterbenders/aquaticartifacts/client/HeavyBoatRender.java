@@ -68,6 +68,6 @@ public class HeavyBoatRender extends EntityRenderer<HeavyBoat>
     @Override
     public ResourceLocation getTextureLocation(HeavyBoat entity)
     {
-        return new ResourceLocation("worldupgrade:textures/entity/heavy_boat.png");
+        return new ResourceLocation("aquatic_artifacts:textures/entity/heavy_boat.png");
     }
 }
