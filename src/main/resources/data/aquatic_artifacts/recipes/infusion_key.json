@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "#L",
+    " L",
+    " c"
+  ],
+  "key": {
+    "#": {
+      "item": "minecraft:prismarine_shard"
+    },
+    "L": {
+      "item": "minecraft:lapis_lazuli"
+    },
+    "c": {
+      "item": "aquatic_artifacts:sunken_metal_ingot"
+    }
+  },
+  "result": {
+    "item": "aquatic_artifacts:infusion_key",
+    "count": 1
+  }
+}
