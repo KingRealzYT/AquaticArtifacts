@@ -1,4 +1,4 @@
-package org.waterbenders.aquaticartifacts.client;
+package org.waterbenders.aquaticartifacts.client.render.entity;
 
 import com.mojang.blaze3d.matrix.MatrixStack;
 import com.mojang.blaze3d.vertex.IVertexBuilder;

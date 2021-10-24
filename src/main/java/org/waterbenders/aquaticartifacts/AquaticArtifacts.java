@@ -12,7 +12,6 @@ import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.waterbenders.aquaticartifacts.client.ModRenderRegistry;
 import org.waterbenders.aquaticartifacts.init.ModBlocks;
 import org.waterbenders.aquaticartifacts.init.ModEntityTypes;
 import org.waterbenders.aquaticartifacts.init.ModItems;
@@ -47,13 +46,4 @@ public class AquaticArtifacts {
 
     private void setup(final FMLCommonSetupEvent event) { }
 
-    @Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD)
-    public static class RegistryEvents
-    {
-        @SubscribeEvent
-        public static void clientSetup(final FMLClientSetupEvent event)
-        {
-            ModRenderRegistry.registerEntityRenderers();
-        }
-    }
 }

@@ -6,6 +6,7 @@ import net.minecraft.block.BlockState;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.ActionResultType;
 import net.minecraft.util.Hand;
@@ -15,7 +16,10 @@ import net.minecraft.world.IBlockReader;
 import net.minecraft.world.World;
 import net.minecraftforge.common.ToolType;
 import net.minecraftforge.common.util.Constants;
+import net.minecraftforge.items.ItemStackHandler;
+import org.waterbenders.aquaticartifacts.common.items.WaterOrb;
 import org.waterbenders.aquaticartifacts.common.tileEntities.OrbInfuserTileEntity;
+import org.waterbenders.aquaticartifacts.init.ModItems;
 
 import javax.annotation.Nullable;
 
@@ -26,7 +30,8 @@ public class OrbInfuser extends Block {
         .strength(30f)
         .sound(SoundType.STONE)
         .harvestTool(ToolType.PICKAXE)
-        .requiresCorrectToolForDrops());
+        .requiresCorrectToolForDrops()
+        .noOcclusion());
     }
 
     @Override
@@ -42,10 +47,27 @@ public class OrbInfuser extends Block {
 
     @Override
     public ActionResultType use(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockRayTraceResult ray) {
-        if(!world.isClientSide){
+        if(!world.isClientSide && hand == Hand.MAIN_HAND){
             TileEntity te = world.getBlockEntity(pos);
             if(te instanceof OrbInfuserTileEntity){
-                ((OrbInfuserTileEntity) te).itemHandler.insertItem(0, player.getItemInHand(hand), false);
+
+                ItemStackHandler itemHandler = ((OrbInfuserTileEntity) te).itemHandler;
+
+                ItemStack itemStack = player.getItemInHand(hand);
+                if(itemStack.getItem() == ModItems.INFUSION_KEY.get()){
+                    ((OrbInfuserTileEntity) te).activateRitual();
+                    world.sendBlockUpdated(pos, state, state, Constants.BlockFlags.BLOCK_UPDATE);
+                    return ActionResultType.SUCCESS;
+                }
+
+                if(itemStack.isEmpty()){
+                    player.setItemInHand(hand, itemHandler.getStackInSlot(0));
+                    itemHandler.setStackInSlot(0, ItemStack.EMPTY);
+                } else if(itemStack.getItem() instanceof WaterOrb && itemHandler.getStackInSlot(0).isEmpty()){
+                    itemHandler.insertItem(0, itemStack, false);
+                    player.setItemInHand(hand, ItemStack.EMPTY);
+                }
+
                 world.sendBlockUpdated(pos, state, state, Constants.BlockFlags.BLOCK_UPDATE);
             }
         }

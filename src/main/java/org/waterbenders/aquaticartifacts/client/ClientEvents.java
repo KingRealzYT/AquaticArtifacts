@@ -3,13 +3,9 @@ package org.waterbenders.aquaticartifacts.client;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.AbstractGui;
 import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.CompoundNBT;
 import net.minecraft.util.ResourceLocation;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.vector.Vector3d;
-import net.minecraft.world.World;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.client.event.RenderGameOverlayEvent;
 import net.minecraftforge.client.event.RenderWorldLastEvent;
@@ -18,14 +14,12 @@ import net.minecraftforge.fml.client.registry.ClientRegistry;
 import net.minecraftforge.fml.client.registry.RenderingRegistry;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
-import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import org.waterbenders.aquaticartifacts.AquaticArtifacts;
+import org.waterbenders.aquaticartifacts.client.render.entity.HeavyBoatRender;
 import org.waterbenders.aquaticartifacts.client.render.entity.PlayerDefendWaterRenderer;
 import org.waterbenders.aquaticartifacts.client.render.tile_entity.OrbInfuserTileEntityRenderer;
-import org.waterbenders.aquaticartifacts.common.items.WaterBallWand;
 import org.waterbenders.aquaticartifacts.common.items.WaterOrb;
 import org.waterbenders.aquaticartifacts.init.ModEntityTypes;
-import org.waterbenders.aquaticartifacts.init.ModItems;
 import org.waterbenders.aquaticartifacts.init.ModTileEntityTypes;
 
 public class ClientEvents {
@@ -60,7 +54,7 @@ public class ClientEvents {
             if(event.getType() == RenderGameOverlayEvent.ElementType.ALL) {
                 PlayerEntity player = Minecraft.getInstance().player;
                 for (ItemStack stack : player.inventory.items) {
-                    if (!stack.isEmpty() && stack.getItem() == ModItems.WATER_ORB.get()) {
+                    if (!stack.isEmpty() && stack.getItem() instanceof WaterOrb) {
                         //float wMult = event.getWindow().getWidth() / 1920f;
                         //float hMult = event.getWindow().getHeight() / 1080f;
 
@@ -92,6 +86,7 @@ public class ClientEvents {
         @SubscribeEvent
         public static void clientSetup(FMLClientSetupEvent event) {
             RenderingRegistry.registerEntityRenderingHandler(ModEntityTypes.PLAYER_DEFEND_WATER_ENTITY.get(), PlayerDefendWaterRenderer::new);
+            RenderingRegistry.registerEntityRenderingHandler(ModEntityTypes.HEAVY_BOAT.get(), HeavyBoatRender::new);
 
             ClientRegistry.bindTileEntityRenderer(ModTileEntityTypes.ORB_INFUSER_TILE_ENTITY_TYPE.get(), OrbInfuserTileEntityRenderer::new);
         }

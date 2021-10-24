@@ -14,7 +14,7 @@ import org.waterbenders.aquaticartifacts.init.ModItems;
 public enum ModArmorMaterial implements IArmorMaterial {
 
     AQUATIC(AquaticArtifacts.MOD_ID + ":aquatic", 50, new int[] { 3, 8, 10, 3}, 25,
-    SoundEvents.ARMOR_EQUIP_GENERIC, 3.5f, () -> Ingredient.of(ModItems.WATER_ORB.get()) ,0);
+    SoundEvents.ARMOR_EQUIP_GENERIC, 3.5f, () -> Ingredient.of(ModItems.WATER_SHARD.get()) ,0);
 
     private static final int[] DURABILITY_MULTIPLIER = new int[] { 11, 16, 15, 13 };
     private final String name;

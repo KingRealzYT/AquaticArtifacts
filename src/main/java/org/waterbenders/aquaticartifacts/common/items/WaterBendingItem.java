@@ -5,6 +5,7 @@ import net.minecraft.client.gui.AbstractGui;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.CompoundNBT;
+import net.minecraftforge.fluids.FluidAttributes;
 import org.waterbenders.aquaticartifacts.AquaticArtifacts;
 import org.waterbenders.aquaticartifacts.init.ModItems;
 
@@ -14,7 +15,7 @@ public interface WaterBendingItem {
 
     default float manaAmount(PlayerEntity player) {
         for (ItemStack stack : player.inventory.items) {
-            if (!stack.isEmpty() && stack.getItem() == ModItems.WATER_ORB.get()) {
+            if (!stack.isEmpty() && stack.getItem() instanceof WaterOrb) {
                 CompoundNBT nbt = stack.getOrCreateTagElement(AquaticArtifacts.MOD_ID);
                 return nbt.getFloat("water");
             }
@@ -24,7 +25,7 @@ public interface WaterBendingItem {
 
     default ItemStack getManaOrb(PlayerEntity player){
         for (ItemStack stack : player.inventory.items) {
-            if (!stack.isEmpty() && stack.getItem() == ModItems.WATER_ORB.get()) {
+            if (!stack.isEmpty() && stack.getItem() instanceof WaterOrb) {
                 return stack;
             }
         }

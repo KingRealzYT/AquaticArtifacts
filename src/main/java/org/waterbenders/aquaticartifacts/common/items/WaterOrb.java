@@ -17,10 +17,12 @@ import org.waterbenders.aquaticartifacts.AquaticArtifacts;
 public class WaterOrb extends Item {
 
     public final int maximumWater;
+    public final int waterIncrease;
 
-    public WaterOrb(int maximumWater) {
+    public WaterOrb(int maximumWater, int waterIncrease) {
         super(new Item.Properties().tab(AquaticArtifacts.TAB).stacksTo(1));
         this.maximumWater = maximumWater;
+        this.waterIncrease = waterIncrease;
     }
 
     @Override
@@ -38,7 +40,8 @@ public class WaterOrb extends Item {
                     CompoundNBT nbt = itemStack.getOrCreateTagElement(AquaticArtifacts.MOD_ID);
                     float waterAmount = nbt.getFloat("water");
                     if(waterAmount < maximumWater) {
-                        nbt.putFloat("water", ++waterAmount);
+                        float nextWater = Math.max(0, Math.min(waterAmount + waterIncrease, maximumWater));
+                        nbt.putFloat("water", nextWater);
                     }
                     return ActionResult.sidedSuccess(itemStack, world.isClientSide);
                 }

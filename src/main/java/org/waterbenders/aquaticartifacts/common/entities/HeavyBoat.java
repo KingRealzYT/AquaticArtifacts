@@ -1,27 +1,22 @@
 package org.waterbenders.aquaticartifacts.common.entities;
 
 import net.minecraft.block.BlockState;
-import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.item.BoatEntity;
-import net.minecraft.item.Items;
 import net.minecraft.network.IPacket;
 import net.minecraft.tags.FluidTags;
-import net.minecraft.util.DamageSource;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.vector.Vector3d;
 import net.minecraft.world.GameRules;
 import net.minecraft.world.World;
-import net.minecraftforge.fml.network.FMLPlayMessages;
 import net.minecraftforge.fml.network.NetworkHooks;
+import org.waterbenders.aquaticartifacts.init.ModEntityTypes;
 import org.waterbenders.aquaticartifacts.init.ModItems;
-import org.waterbenders.aquaticartifacts.init.ModEntities;
 
 
 public class HeavyBoat extends BoatEntity
 {
     public HeavyBoat(World world) {
-        super(ModEntities.HEAVY_BOAT.get(), world);
+        super(ModEntityTypes.HEAVY_BOAT.get(), world);
         this.blocksBuilding = true;
     }
 
@@ -33,7 +28,7 @@ public class HeavyBoat extends BoatEntity
 
     public HeavyBoat(World world, double x, double y, double z)
     {
-        super(ModEntities.HEAVY_BOAT.get(), world);
+        super(ModEntityTypes.HEAVY_BOAT.get(), world);
         this.blocksBuilding = true;
         this.xo = x;
         this.yo = y;
