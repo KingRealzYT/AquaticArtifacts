@@ -10,10 +10,7 @@ import org.waterbenders.aquaticartifacts.common.armor.AquaticChestplate;
 import org.waterbenders.aquaticartifacts.common.armor.AquaticHelmet;
 import org.waterbenders.aquaticartifacts.common.armor.AquaticLeggings;
 import org.waterbenders.aquaticartifacts.common.blocks.BlockItemBase;
-import org.waterbenders.aquaticartifacts.common.items.SunkenMetalIngot;
-import org.waterbenders.aquaticartifacts.common.items.WaterBallWand;
-import org.waterbenders.aquaticartifacts.common.items.WaterOrb;
-import org.waterbenders.aquaticartifacts.common.items.WaterShard;
+import org.waterbenders.aquaticartifacts.common.items.*;
 
 public class ModItems {
 
@@ -35,10 +32,15 @@ public class ModItems {
     // Water Shard it is shard made from water related things:
     public static final RegistryObject<Item> WATER_SHARD = ITEMS.register("water_shard", WaterShard::new);
 
+<<<<<<< Updated upstream
     //Armor
     public static final RegistryObject<Item> AQUATIC_HELMET = ITEMS.register("aquatic_helmet", AquaticHelmet::new);
     public static final RegistryObject<Item> AQUATIC_CHESTPLATE = ITEMS.register("aquatic_chestplate", AquaticChestplate::new);
     public static final RegistryObject<Item> AQUATIC_LEGGINGS = ITEMS.register("aquatic_leggings", AquaticLeggings::new);
     public static final RegistryObject<Item> AQUATIC_BOOTS = ITEMS.register("aquatic_boots", AquaticBoots::new);
 
+=======
+    // Boat Item this is an item that can summon boat when you right click
+    public static final RegistryObject<Item> HEAVY_BOAT = ITEMS.register("heavy_boat", HeavyBoatItem::new);
+>>>>>>> Stashed changes
 }
