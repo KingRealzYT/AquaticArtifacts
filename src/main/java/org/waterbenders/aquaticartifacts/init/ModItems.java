@@ -20,8 +20,8 @@ public class ModItems {
     public static final RegistryObject<Item> WATER_BALL_WAND = ITEMS.register("water_ball_wand", WaterBallWand::new);
     public static final RegistryObject<Item> WATER_ORB = ITEMS.register("water_orb", () -> new WaterOrb(250));
     public static final RegistryObject<Item> WATER_DEFENDER_WAND = ITEMS.register("water_defender_wand", WaterDefenderWand::new);
-    public static final RegistryObject<Item> AQUATIC_CHESTPLATE = ITEMS.register("aquatic_chestplate", AquaticChestplate::new);
     public static final RegistryObject<Item> AQUATIC_HELMET = ITEMS.register("aquatic_helmet", AquaticHelmet::new);
+    public static final RegistryObject<Item> AQUATIC_CHESTPLATE = ITEMS.register("aquatic_chestplate", AquaticChestplate::new);
     public static final RegistryObject<Item> AQUATIC_LEGGINGS = ITEMS.register("aquatic_leggings", AquaticLeggings::new);
     public static final RegistryObject<Item> AQUATIC_BOOTS = ITEMS.register("aquatic_boots", AquaticBoots::new);
 }
