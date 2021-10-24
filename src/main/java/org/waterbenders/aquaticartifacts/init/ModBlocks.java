@@ -5,6 +5,7 @@ import net.minecraftforge.fml.RegistryObject;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import org.waterbenders.aquaticartifacts.AquaticArtifacts;
+import org.waterbenders.aquaticartifacts.common.blocks.OrbInfuser;
 import org.waterbenders.aquaticartifacts.common.blocks.SunkenMetalBlock;
 
 public class ModBlocks {
@@ -13,5 +14,6 @@ public class ModBlocks {
 
     // Blocks
     public static final RegistryObject<Block> SUNKEN_METAL_BLOCK = BLOCKS.register("sunken_metal_block", SunkenMetalBlock::new);
+    public static final RegistryObject<Block> ORB_INFUSER = BLOCKS.register("orb_infuser", OrbInfuser::new);
 
 }

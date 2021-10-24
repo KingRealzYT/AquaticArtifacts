@@ -1,7 +1,13 @@
 {
+  "itemGroup.aquatic_artifacts": "Aquatic Artifacts",
   "item.aquatic_artifacts.water_orb": "Water Orb",
   "item.aquatic_artifacts.sunken_metal_ingot": "Ingot of Sunken Metal",
   "item.aquatic_artifacts.water_shard": "Water Shard",
-  "block.aquatic_artifacts.sunken_metal_block": "Block of Sunken Metal",
-  "itemGroup.aquatic_artifacts": "Aquatic Artifacts"
+  "item.aquatic_artifacts.water_ball_wand": "Wand of the moving Water",
+  "item.aquatic_artifacts.aquatic_helmet": "Aquatic Helmet",
+  "item.aquatic_artifacts.aquatic_chestplate": "Aquatic Chestplate",
+  "item.aquatic_artifacts.aquatic_leggings": "Sunken Metal Leggings",
+  "item.aquatic_artifacts.aquatic_boots": "Flopper Boots",
+
+  "block.aquatic_artifacts.sunken_metal_block": "Block of Sunken Metal"
 }

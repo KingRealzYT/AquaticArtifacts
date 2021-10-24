@@ -1,14 +1,10 @@
 package org.waterbenders.aquaticartifacts.common.items;
 
-import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
-import net.minecraft.client.Minecraft;
-import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.CompoundNBT;
-import net.minecraft.tags.BlockTags;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
 import net.minecraft.util.math.BlockPos;
@@ -18,7 +14,6 @@ import org.waterbenders.aquaticartifacts.AquaticArtifacts;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.concurrent.atomic.AtomicInteger;
 
 public class WaterBallWand extends Item implements WaterBendingItem {
 
@@ -26,7 +21,7 @@ public class WaterBallWand extends Item implements WaterBendingItem {
     public static final int SUCK_RADIUS = 2;
 
     public WaterBallWand() {
-        super(new Item.Properties().tab(AquaticArtifacts.TAB));
+        super(new Item.Properties().tab(AquaticArtifacts.TAB).stacksTo(1));
     }
 
     @Override
@@ -104,6 +99,6 @@ public class WaterBallWand extends Item implements WaterBendingItem {
 
     @Override
     public float manaCost() {
-        return 0;
+        return 50;
     }
 }

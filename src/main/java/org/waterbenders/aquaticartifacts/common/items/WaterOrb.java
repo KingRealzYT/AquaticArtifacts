@@ -19,7 +19,7 @@ public class WaterOrb extends Item {
     public final int maximumWater;
 
     public WaterOrb(int maximumWater) {
-        super(new Item.Properties().tab(AquaticArtifacts.TAB));
+        super(new Item.Properties().tab(AquaticArtifacts.TAB).stacksTo(1));
         this.maximumWater = maximumWater;
     }
 
