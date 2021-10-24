@@ -3,6 +3,8 @@ package org.waterbenders.aquaticartifacts.common.tileEntities;
 import net.minecraft.block.BlockState;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.CompoundNBT;
+import net.minecraft.network.NetworkManager;
+import net.minecraft.network.play.server.SUpdateTileEntityPacket;
 import net.minecraft.tileentity.ITickableTileEntity;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.tileentity.TileEntityType;
@@ -40,6 +42,22 @@ public class OrbInfuserTileEntity extends TileEntity implements ITickableTileEnt
     public void load(BlockState blockState, CompoundNBT tag) {
         tag.put("inv", itemHandler.serializeNBT());
         super.load(blockState, tag);
+    }
+
+
+    @Override
+    public SUpdateTileEntityPacket getUpdatePacket(){
+        CompoundNBT nbtTag = new CompoundNBT();
+        //Write your data into the nbtTag
+        nbtTag.put("inv", itemHandler.serializeNBT());
+        return new SUpdateTileEntityPacket(this.getBlockPos(), -1, nbtTag);
+    }
+
+    @Override
+    public void onDataPacket(NetworkManager net, SUpdateTileEntityPacket pkt){
+        CompoundNBT tag = pkt.getTag();
+        //Handle your Data
+        itemHandler.deserializeNBT(tag.getCompound("inv"));
     }
 
 

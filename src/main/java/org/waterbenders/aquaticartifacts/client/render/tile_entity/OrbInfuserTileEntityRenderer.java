@@ -42,13 +42,13 @@ public class OrbInfuserTileEntityRenderer extends TileEntityRenderer<OrbInfuserT
 
         int lightLevel = getLightLevel(te.getLevel(), te.getBlockPos().above());
 
-        renderItem(itemStack, new double[] { 0.5d, 1d, 0.5d },
+        renderItem(itemStack, new double[] { 0.5d, 1.2d, 0.5d },
                 Vector3f.YP.rotationDegrees(renderStateCount), matrixStack, buffer, partialTicks,
                 combinedOverlay, lightLevel, 1f);
 
         ITextComponent label = itemStack.hasCustomHoverName() ? itemStack.getDisplayName() : new TranslationTextComponent(itemStack.getDescriptionId());
 
-        renderLabel(matrixStack, buffer, lightLevel, new double[] {.5d, 1.3d, .5d}, label, 0xffffff);
+        renderLabel(matrixStack, buffer, lightLevel, new double[] {.5d, 1.4d, .5d}, label, 0xffffff);
 
         renderStateCount++;
         if(renderStateCount > 360) {

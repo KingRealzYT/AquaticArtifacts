@@ -14,6 +14,7 @@ import net.minecraft.util.math.BlockRayTraceResult;
 import net.minecraft.world.IBlockReader;
 import net.minecraft.world.World;
 import net.minecraftforge.common.ToolType;
+import net.minecraftforge.common.util.Constants;
 import org.waterbenders.aquaticartifacts.common.tileEntities.OrbInfuserTileEntity;
 
 import javax.annotation.Nullable;
@@ -44,8 +45,8 @@ public class OrbInfuser extends Block {
         if(!world.isClientSide){
             TileEntity te = world.getBlockEntity(pos);
             if(te instanceof OrbInfuserTileEntity){
-
                 ((OrbInfuserTileEntity) te).itemHandler.insertItem(0, player.getItemInHand(hand), false);
+                world.sendBlockUpdated(pos, state, state, Constants.BlockFlags.BLOCK_UPDATE);
             }
         }
 
