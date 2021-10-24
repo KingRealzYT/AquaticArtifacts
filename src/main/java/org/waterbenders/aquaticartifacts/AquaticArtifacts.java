@@ -20,7 +20,6 @@ import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.waterbenders.aquaticartifacts.init.ModBlocks;
-import org.waterbenders.aquaticartifacts.init.ModEntityTypes;
 import org.waterbenders.aquaticartifacts.init.ModItems;
 
 import java.util.stream.Collectors;
@@ -39,15 +38,11 @@ public class AquaticArtifacts {
     };
 
     public AquaticArtifacts() {
-        IEventBus bus = FMLJavaModLoadingContext.get().getModEventBus();
+        FMLJavaModLoadingContext.get().getModEventBus().addListener(this::setup);
+        FMLJavaModLoadingContext.get().getModEventBus().addListener(this::doClientStuff);
 
-        bus.addListener(this::setup);
-        bus.addListener(this::doClientStuff);
-
-        ModBlocks.BLOCKS.register(bus);
-        ModItems.ITEMS.register(bus);
-        ModEntityTypes.ENTITY_TYPES.register(bus);
-
+        ModBlocks.BLOCKS.register(FMLJavaModLoadingContext.get().getModEventBus());
+        ModItems.ITEMS.register(FMLJavaModLoadingContext.get().getModEventBus());
 
         MinecraftForge.EVENT_BUS.register(this);
     }
