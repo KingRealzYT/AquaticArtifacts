@@ -30,6 +30,7 @@ public class HeavyBoat extends BoatEntity
     {
         super(ModEntityTypes.HEAVY_BOAT.get(), world);
         this.blocksBuilding = true;
+        this.setPos(x, y, z);
         this.xo = x;
         this.yo = y;
         this.zo = z;

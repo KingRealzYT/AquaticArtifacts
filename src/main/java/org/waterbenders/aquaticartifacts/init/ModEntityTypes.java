@@ -20,7 +20,7 @@ public class ModEntityTypes {
                     .sized(1.0f, 1.0f)
                     .build(new ResourceLocation(AquaticArtifacts.MOD_ID, "player_defend_water").toString()));
 
-    public static final EntityType<HeavyBoat> TYPE_HEAVY_BOAT = EntityType.Builder.of((EntityType.IFactory<HeavyBoat>) HeavyBoat::new, EntityClassification.MISC).sized(1.0F, 0.5F).build("aquatic_artifacts:heavy_boat");
+    public static final EntityType<HeavyBoat> TYPE_HEAVY_BOAT = EntityType.Builder.of((EntityType.IFactory<HeavyBoat>) HeavyBoat::new, EntityClassification.MISC).sized(1.375F, 0.5625F).build("aquatic_artifacts:heavy_boat");
     public static final RegistryObject<EntityType<HeavyBoat>> HEAVY_BOAT = ENTITY_TYPES.register("heavy_boat", () -> TYPE_HEAVY_BOAT);
 
 }
