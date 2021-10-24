@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "ggg",
+    "gwg",
+    "ggg"
+  ],
+  "key": {
+    "w": {
+      "item": "minecraft:water_bucket"
+    },
+    "g": {
+      "item": "minecraft:glass"
+    }
+  },
+  "result": {
+    "item": "aquatic_artifacts:water_orb_1",
+    "count": 1
+  }
+}

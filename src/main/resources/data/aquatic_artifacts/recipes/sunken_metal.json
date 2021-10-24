@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "mmm",
+    "mmm",
+    "mmm"
+  ],
+  "key": {
+    "m": {
+      "item": "aquatic_artifacts:sunken_metal_ingot"
+    }
+  },
+  "result": {
+    "item": "aquatic_artifacts:sunken_metal_block",
+    "count": 1
+  }
+}
