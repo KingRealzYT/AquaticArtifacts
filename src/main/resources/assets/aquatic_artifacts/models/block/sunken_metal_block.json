@@ -1,0 +1,6 @@
+{
+  "parent": "block/cube_all",
+  "textures": {
+    "all": "aquatic_artifacts:blocks/sunken_metal_block"
+  }
+}

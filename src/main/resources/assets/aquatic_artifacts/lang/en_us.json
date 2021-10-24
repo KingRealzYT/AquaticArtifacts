@@ -1,4 +1,6 @@
 {
-  "itemGroup.aquatic_artifacts": "Aquatic Artifacts",
-  "item.aquatic_artifacts.water_orb": "Water Orb"
+  "item.aquatic_artifacts.water_orb": "Water Orb",
+  "item.aquatic_artifacts.sunken_metal_ingot": "Ingot of Sunken Metal",
+  "block.aquatic_artifacts.sunken_metal_block": "Block of Sunken Metal",
+  "itemGroup.aquatic_artifacts": "Aquatic Artifacts"
 }
