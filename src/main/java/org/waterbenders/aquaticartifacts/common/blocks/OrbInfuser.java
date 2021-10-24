@@ -27,7 +27,7 @@ public class OrbInfuser extends Block {
 
     public OrbInfuser() {
         super(AbstractBlock.Properties.of(Material.STONE)
-        .strength(30f)
+        .strength(5f)
         .sound(SoundType.STONE)
         .harvestTool(ToolType.PICKAXE)
         .requiresCorrectToolForDrops()
