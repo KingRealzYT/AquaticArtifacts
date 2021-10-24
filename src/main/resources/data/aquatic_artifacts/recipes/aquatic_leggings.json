@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "mmm",
+    "m m",
+    "m m"
+  ],
+  "key": {
+    "m": {
+      "item":"aquatic_artifacts:sunken_metal_ingot"
+    }
+  },
+  "result": {
+    "item": "aquatic_artifacts:aquatic_leggings",
+    "count": 1
+  }
+}

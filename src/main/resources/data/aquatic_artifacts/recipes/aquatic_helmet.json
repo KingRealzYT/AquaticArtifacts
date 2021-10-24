@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "sss",
+    "sds",
+    "sss"
+  ],
+  "key": {
+    "s": {
+      "item":"aquatic_artifacts:water_shard"
+    },
+    "d": {
+      "item": "minecraft:diamond_helmet"
+    }
+  },
+  "result": {
+    "item": "aquatic_artifacts:aquatic_helmet",
+    "count": 1
+  }
+}
