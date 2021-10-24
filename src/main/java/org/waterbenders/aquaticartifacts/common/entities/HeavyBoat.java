@@ -3,6 +3,7 @@ package org.waterbenders.aquaticartifacts.common.entities;
 import net.minecraft.block.BlockState;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.item.BoatEntity;
+import net.minecraft.item.Item;
 import net.minecraft.network.IPacket;
 import net.minecraft.tags.FluidTags;
 import net.minecraft.util.math.BlockPos;
@@ -76,5 +77,11 @@ public class HeavyBoat extends BoatEntity
     {
         super.tick();
         this.setDeltaMovement(this.getDeltaMovement().add(0d, -0.1d, 0d));
+    }
+
+    @Override
+    public Item getDropItem()
+    {
+        return ModItems.HEAVY_BOAT.get();
     }
 }
