@@ -5,11 +5,14 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.eventbus.api.IEventBus;
+import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.waterbenders.aquaticartifacts.client.ModRenderRegistry;
 import org.waterbenders.aquaticartifacts.init.ModBlocks;
 import org.waterbenders.aquaticartifacts.init.ModEntityTypes;
 import org.waterbenders.aquaticartifacts.init.ModItems;
@@ -36,10 +39,21 @@ public class AquaticArtifacts {
         ModBlocks.BLOCKS.register(bus);
         ModItems.ITEMS.register(bus);
         ModEntityTypes.ENTITY_TYPES.register(bus);
+
         ModTileEntityTypes.TILE_ENTITY_TYPES.register(bus);
         ModFeatures.FEATURES.register(bus);
         MinecraftForge.EVENT_BUS.register(this);
     }
 
     private void setup(final FMLCommonSetupEvent event) { }
+
+    @Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD)
+    public static class RegistryEvents
+    {
+        @SubscribeEvent
+        public static void clientSetup(final FMLClientSetupEvent event)
+        {
+            ModRenderRegistry.registerEntityRenderers();
+        }
+    }
 }
